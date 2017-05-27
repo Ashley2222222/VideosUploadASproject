@@ -15,7 +15,6 @@ import com.jiesai.camera.Adapter.VideoListAdapter;
 import com.jiesai.camera.AsyncTask.VedioScannerTask;
 import com.jiesai.camera.model.VideoInfo;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 

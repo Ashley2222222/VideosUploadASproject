@@ -1,4 +1,13 @@
 package com.jiesai.camera.Activity;
+/**
+ *  app homepage with a gridview to list the videos have been chosen ,a btn to commit all the videos
+ *  a btn to delete the video has been selected to play.
+ *  click the last "+" pic in the gridview revoke 3 btns from the bottom.
+ *  1st for taking a new video
+ *  2nd jump to another activity which list all the videos in your machine.
+ *      choose those you want click confirm btn in the bottom .
+ *  3rd cancel and hide this pannel in the bottom
+*/
 
 
 import android.app.Activity;
