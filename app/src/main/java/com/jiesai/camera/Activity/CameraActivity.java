@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
-import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -28,16 +27,7 @@ import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.jiesai.camara.R;
-
-import java.io.File;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.List;
-
-
 import com.jiesai.camera.AsyncTask.UploadVideoFileTask;
-
 import com.jiesai.camera.Utils.PublicUtil;
 import com.jiesai.camera.Utils.StorageUtils;
 import com.jiesai.camera.Utils.photo.Bimp;
@@ -47,6 +37,10 @@ import com.jiesai.camera.Utils.video.VideoUtil;
 import com.jiesai.camera.model.VideoInfo;
 import com.jiesai.camera.photo.GridAdapter;
 import com.jiesai.camera.view.GridView.MyGridView;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
