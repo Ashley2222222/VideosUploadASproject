@@ -1,6 +1,8 @@
 package com.jiesai.camera.AsyncTask;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Environment;
@@ -26,12 +28,14 @@ public class VedioScannerTask extends AsyncTask<Void, Integer, List<VideoInfo>> 
     private Activity context = null;
     private ListView lv;
     private VideoListAdapter adapter= null;
-
-    public VedioScannerTask(Activity ctx,List<VideoInfo> videoInfos, ListView lv, VideoListAdapter adapter) {
+    // 加载框
+    ProgressDialog progressDialog;
+    public VedioScannerTask(Activity ctx,List<VideoInfo> videoInfos, ListView lv, VideoListAdapter adapter, ProgressDialog progressDialog) {
         this.context = ctx;
         this.videoInfos = videoInfos;
         this.lv = lv;
         this.adapter = adapter;
+        this.progressDialog = progressDialog;
     }
 
     @Override
@@ -53,6 +57,7 @@ public class VedioScannerTask extends AsyncTask<Void, Integer, List<VideoInfo>> 
         adapter = new VideoListAdapter(context, videoInfos);
         adapter.notifyDataSetChanged();
         lv.setAdapter(adapter);
+        progressDialog.dismiss();
     }
 
     /**

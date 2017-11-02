@@ -2,5 +2,5 @@
     <string name="hello">Hello World, CameraActivity!</string>
     <string name="app_name">拍摄并上传视频</string>
     <string name="comm_confirm">确定</string>
-
+    <string name="comm_sys_onLoading">加载中......</string>
 </resources>

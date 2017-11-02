@@ -1,6 +1,8 @@
 package com.jiesai.camera.Activity;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -32,8 +34,11 @@ public class VideoListActivity extends Activity implements View.OnClickListener 
     Button btnConfirm;
     @Bind(R.id.ll_confirm)
     LinearLayout llConfirm;
-    private List<VideoInfo> videoInfos = new ArrayList<VideoInfo>();
-    private List<VideoInfo> videoChosenInfos = new ArrayList<VideoInfo>();
+    private List<VideoInfo> videoInfos = new ArrayList<VideoInfo>();//已选名称列表
+    private List<VideoInfo> videoChosenInfos = new ArrayList<VideoInfo>();//已选列表
+Context ctx = this;
+    // 加载框
+    public ProgressDialog progressDialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,7 +51,11 @@ public class VideoListActivity extends Activity implements View.OnClickListener 
     }
 
     private void initInfo() {
-        VedioScannerTask scanTask = new VedioScannerTask(VideoListActivity.this, videoInfos, lv, adapter);
+        progressDialog = new ProgressDialog(ctx);
+        progressDialog.setMessage(getResources().getString(R.string.comm_sys_onLoading));
+        progressDialog.show();
+        adapter = new VideoListAdapter(ctx,videoChosenInfos);
+        VedioScannerTask scanTask = new VedioScannerTask(VideoListActivity.this, videoInfos, lv, adapter,progressDialog);
         scanTask.execute();
     }
 

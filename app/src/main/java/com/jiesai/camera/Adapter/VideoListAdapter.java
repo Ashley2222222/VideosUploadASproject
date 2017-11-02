@@ -3,7 +3,9 @@
  */
 package com.jiesai.camera.Adapter;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.jiesai.camara.R;
 import com.jiesai.camera.Utils.UIUtil;
+import com.jiesai.camera.Utils.photo.ImageItem;
 import com.jiesai.camera.model.VideoInfo;
 
 import java.util.List;
@@ -28,7 +31,6 @@ public class VideoListAdapter extends BaseAdapter {
 	public static double FONTSIZE;
 	private List<VideoInfo> items = null;
 	private Context context;
-
 	public VideoListAdapter(Context context, List<VideoInfo> items) {
 		this.context = context;
 		this.items = items;
@@ -79,7 +81,8 @@ public class VideoListAdapter extends BaseAdapter {
 
 			}});
 		viewHolder.tv_name.setText(items.get(currPosition).getFileName()==null?"":items.get(currPosition).getFileName());
-		viewHolder.iv.setImageBitmap(items.get(currPosition).getIi().getBitmap());
+				Bitmap bitmap = items.get(currPosition).getIi().getBitmap();
+		viewHolder.iv.setImageBitmap(bitmap);
 
 		convertView.setOnClickListener(new View.OnClickListener() {
 			@Override

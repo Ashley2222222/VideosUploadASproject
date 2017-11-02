@@ -2,6 +2,9 @@ package com.jiesai.camera.Utils.photo;
 
 import android.graphics.Bitmap;
 
+import com.jiesai.camara.R;
+import com.jiesai.camera.Utils.PublicUtil;
+
 import java.io.IOException;
 import java.io.Serializable;
 
@@ -42,7 +45,9 @@ public class ImageItem implements Serializable {
 	public Bitmap getBitmap() {
 		if(bitmap == null){
 			try {
+				if(!PublicUtil.checkEmptyString(imagePath))
 				bitmap = Bimp.revitionImageSize(imagePath);
+
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
